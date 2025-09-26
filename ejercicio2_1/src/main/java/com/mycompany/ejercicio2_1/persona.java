@@ -17,15 +17,19 @@ public class persona { //creacion del objeto tipo persona
     String apellidos;    // apellido de la persona
     String numero_documento; //numero de documento de identificacion de la persona, se guarda como string para evitar overflow
     int nacimiento; // el año de nacimiento de la persona
+    String pais; // el pais de nacieminto de la persona
+    char genero; // el genero de la persona
 
 
     /* Constructor de la clase persona */
-    persona(String nombre, String apellidos, String numero_documento, int nacimiento){ //constructor de la clase
+    persona(String nombre, String apellidos, String numero_documento, int nacimiento, String pais, char genero){ //constructor de la clase
         /* se asigna el valor correspondiente a cada atributo */
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.numero_documento = numero_documento;
         this.nacimiento = nacimiento;
+        this.pais = pais;
+        this.genero = genero;
     }
 
     /* metodo para imprimir en consola los atributos del objeto persona */
@@ -37,5 +41,7 @@ public class persona { //creacion del objeto tipo persona
         System.out.println("Apellidos: " + apellidos);
         System.out.println("Numero de documento: " + numero_documento);
         System.out.println("Año de nacimiento: " + nacimiento);
+        System.out.println("Pais de nacimiento: " + pais);
+        System.out.println("Genero: " + genero);
     }
 }
