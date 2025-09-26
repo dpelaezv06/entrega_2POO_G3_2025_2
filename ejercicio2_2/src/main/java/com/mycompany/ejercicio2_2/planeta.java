@@ -24,6 +24,18 @@ public class planeta {
     tipos_planetas tipo; // tipo de planeta entre gaseoso, terreste o enano
     boolean observable = false; // el planeta es o no observable a simple vista
     
-       
+    /* constructor de objetos del tipo planeta */
+    planeta(String nombre, int satelites, double masa, double volumen, int diametro, int distancia_sol, tipos_planetas tipo, 
+    boolean observable){
+        /* el constructor inicializa los atributos del objeto planeta */
+        this.nombre = nombre;
+        this.satelites = satelites;
+        this.masa = masa;
+        this.volumen = volumen;
+        this.diametro = diametro;
+        this.distancia_sol = distancia_sol;
+        this.tipo = tipo;
+        this.observable = observable;
+    }
 
 }
