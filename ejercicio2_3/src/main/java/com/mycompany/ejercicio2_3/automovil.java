@@ -53,53 +53,88 @@ public class automovil {
 
     }
 
-    String getMarca(){
+    /* metodos get para obtener los atributos de los objetos de tipo vehiculo */
+
+    public String getMarca(){
         return marca;
     }
 
-    short getModelo(){
+    public short getModelo(){
         return modelo;
     }
 
-    float getMotor(){
+    public float getMotor(){
         return motor;
     }
 
-    combustible getCombustible(){
+    public combustible getCombustible(){
         return tipo_combustible;
     }
 
-    tipo_automovil getTipoAutomovil(){
+    public tipo_automovil getTipoAutomovil(){
         return automovil;
     }
 
-    byte numero_puertas(){
+    public byte numero_puertas(){
         return numero_puertas;
     }
 
-    byte cantidad_asientos(){
+    public byte cantidad_asientos(){
         return cantidad_asientos;
     }
 
-    short getVelocidadMaxima(){
+    public short getVelocidadMaxima(){
         return velocidad_maxima;
     }
 
-    color getColor(){
+    public color getColor(){
         return color_vehiculo;
     }
 
-    short getVelocidadActual(){
+    public short getVelocidadActual(){
         return velocidad_actual;
     }
 
-    public void leer_velocidad(){
-
+    /* metodos set para cambiar los atributos del objeto automovil */
+    public void setMarca(String marca){
+        this.marca = marca;
     }
 
+    public void setModelo(short modelo){
+        this.modelo = modelo;
+    }
 
-    
-    
+    public void setMotor(float motor){
+        this.motor = motor;
+    }
+
+    public void setCombustible(tipo_combustible combustible){
+        this.tipo_combustible = combustible;
+    }
+
+    public void setTipoAutomovil(tipo_automovil automovil){
+        this.automovil = automovil;
+    }
+
+    public void setNumeroPuertas(byte numero_puertas){
+        this.numero_puertas = numero_puertas;
+    }
+
+    public void setCantidadAsientos(byte asientos){
+        this.cantidad_asientos = asientos;
+    }
+
+    public void setVelocidadMaxima(short velocidad){
+        this.velocidad_maxima = velocidad;
+    }
+
+    public void setColor(color color){
+        this.color_vehiculo = color;
+    }
+
+    public void setVelocidadActual(short velocidad){
+        this.velocidad_actual = velocidad;
+    }   
 
 
 }
