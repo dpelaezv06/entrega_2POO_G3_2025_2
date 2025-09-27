@@ -24,10 +24,10 @@ public class planeta {
     tipos_planetas tipo; // tipo de planeta entre gaseoso, terreste o enano
     boolean observable = false; // el planeta es o no observable a simple vista
     boolean exterior = false; //atributo booleano para saber si el planeta ees exterior
+    double densidad = 0; // atributo para guardar la densidad de un planeta
     
     /* constructor de objetos del tipo planeta */
-    planeta(String nombre, int satelites, double masa, double volumen, int diametro, int distancia_sol, tipos_planetas tipo, 
-    boolean observable){
+    planeta(String nombre, int satelites, double masa, double volumen, int diametro, int distancia_sol, tipos_planetas tipo, boolean observable){
         /* el constructor inicializa los atributos del objeto planeta */
         this.nombre = nombre;
         this.satelites = satelites;
@@ -37,23 +37,24 @@ public class planeta {
         this.distancia_sol = distancia_sol;
         this.tipo = tipo;
         this.observable = observable;
-        this.exterior = planeta_exterior(distancia_sol);
+        this.exterior = planeta_exterior();
+        this.densidad = calcular_densidad();
     }
 
-    public static double calcular_densidad(planeta planeta){
+    private double calcular_densidad(){
         double densidad;
-        densidad = planeta.masa/planeta.volumen; // calculo de la densidad del planeta en kilogramos / kilometros cubicos
+        densidad = masa/volumen; // calculo de la densidad del planeta en kilogramos / kilometros cubicos
         return densidad;
     }
 
-    public static boolean planeta_exterior(int distancia_sol){
+    private boolean planeta_exterior(){
         double limite = 3.4 * 149597870; // limite superior de la existencia del cinturon de asteriodes
         if (distancia_sol >= limite){
             return true;
 
         } else{
             return false;
-            
+
         }
     }
 
@@ -66,6 +67,8 @@ public class planeta {
         System.out.println("Distancia promedio al sol en millones de kilometros: " + distancia_sol);
         System.out.println("Tipo de planeta: " + tipo);
         System.out.println("Es observable a simple vista: " + observable);
+        System.out.println("Densidad en km*(km^-3): " + densidad);
+        System.out.println("Es un planeta exterior: " + exterior);
     }
 
 }
