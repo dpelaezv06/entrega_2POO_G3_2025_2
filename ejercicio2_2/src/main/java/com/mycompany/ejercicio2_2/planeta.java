@@ -25,9 +25,11 @@ public class planeta {
     boolean observable = false; // el planeta es o no observable a simple vista
     boolean exterior = false; //atributo booleano para saber si el planeta ees exterior
     double densidad = 0; // atributo para guardar la densidad de un planeta
+    double periodo_orbital; // periodo orbital del planeta en años
+    double periodo_rotacion; // periodo de rotacion del planeta en dias
     
     /* constructor de objetos del tipo planeta */
-    planeta(String nombre, int satelites, double masa, double volumen, int diametro, int distancia_sol, tipos_planetas tipo, boolean observable){
+    planeta(String nombre, int satelites, double masa, double volumen, int diametro, int distancia_sol, tipos_planetas tipo, boolean observable, double periodo_orbital, double periodo_rotacion){
         /* el constructor inicializa los atributos del objeto planeta */
         this.nombre = nombre;
         this.satelites = satelites;
@@ -39,6 +41,9 @@ public class planeta {
         this.observable = observable;
         this.exterior = planeta_exterior();
         this.densidad = calcular_densidad();
+        this.periodo_orbital = periodo_orbital;
+        this.periodo_rotacion = periodo_rotacion;
+        
     }
 
     private double calcular_densidad(){
@@ -69,6 +74,9 @@ public class planeta {
         System.out.println("Es observable a simple vista: " + observable);
         System.out.println("Densidad en km*(km^-3): " + densidad);
         System.out.println("Es un planeta exterior: " + exterior);
+        System.out.println("Periodo orbital (en años terrestres): " + periodo_orbital);
+        System.out.println("Periodo de rotacion (en dias terrestres): " + periodo_rotacion);
+
     }
 
 }

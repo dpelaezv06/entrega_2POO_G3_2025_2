@@ -15,8 +15,8 @@ public class Ejercicio2_2 {
     public static void main(String[] args) {
         /* Creamos 2 objetos del tipo planeta */
 
-        planeta tierra = new planeta("Tierra", 1,  5.9722E24, 1.08321E12 , 12742, 14960000, tipos_planetas.TERRESTRE, true);
-        planeta marte = new planeta("Marte", 2,  6.4185E23, 1.6318E11 , 6794, 227392100, tipos_planetas.TERRESTRE, true);
+        planeta tierra = new planeta("Tierra", 1,  5.9722E24, 1.08321E12 , 12742, 14960000, tipos_planetas.TERRESTRE, true, 1, 1);
+        planeta marte = new planeta("Marte", 2,  6.4185E23, 1.6318E11 , 6794, 227392100, tipos_planetas.TERRESTRE, true, 687, 24.6);
         tierra.imprimir();
         marte.imprimir();
     }
