@@ -134,7 +134,40 @@ public class automovil {
 
     public void setVelocidadActual(short velocidad){
         this.velocidad_actual = velocidad;
-    }   
+    }
+
+    /* metodos para aumentar y disminuir la velocidad actual */
+
+    public void acelerar(short incremento_velocidad){
+        /* metodo para aumentar la velocidad */
+
+        short velocidad; // variable para guardar la velocidad nueva luego del incremento
+
+        velocidad = velocidad_actual + incremento_velocidad; //se calcula la nueva velocidad tras el incremento
+        if (velocidad > velocidad_maxima){
+            System.out.println("El incremento solicitado excede la velocidad maxima");
+        }else{
+            velocidad_actual = velocidad; // en otro caso, el incremento es permitido, y se guarda el nuevo valor de velocidad
+        }
+    }
+
+    public void frenar(short decremento){
+        /* metodo para decrementar la velocidad actual */
+        if (decremento > velocidad_actual){ // caso que se solicite decrementar mas de la velocidad actual
+            System.err.println("El decremento solicitado resultaria en una velocidad negativa");
+
+        }else{ // en caso contrario el decremento solicitado es valido
+            velocidad_actual = velocidad_actual - decremento;
+        }
+    }
+
+    public void detener(){
+        /* metodo para poner la velocidad en cero */
+        velocidad_actual = 0;
+    }
+
+
+
 
 
 }
