@@ -23,6 +23,7 @@ public class planeta {
     int distancia_sol = 0; // distancia entre el planeta y el sol en millones de kilometros
     tipos_planetas tipo; // tipo de planeta entre gaseoso, terreste o enano
     boolean observable = false; // el planeta es o no observable a simple vista
+    boolean exterior = false; //atributo booleano para saber si el planeta ees exterior
     
     /* constructor de objetos del tipo planeta */
     planeta(String nombre, int satelites, double masa, double volumen, int diametro, int distancia_sol, tipos_planetas tipo, 
@@ -36,12 +37,24 @@ public class planeta {
         this.distancia_sol = distancia_sol;
         this.tipo = tipo;
         this.observable = observable;
+        this.exterior = planeta_exterior(distancia_sol);
     }
 
     public static double calcular_densidad(planeta planeta){
         double densidad;
         densidad = planeta.masa/planeta.volumen; // calculo de la densidad del planeta en kilogramos / kilometros cubicos
         return densidad;
+    }
+
+    public static boolean planeta_exterior(int distancia_sol){
+        double limite = 3.4 * 149597870; // limite superior de la existencia del cinturon de asteriodes
+        if (distancia_sol >= limite){
+            return true;
+
+        } else{
+            return false;
+            
+        }
     }
 
     public void imprimir(){
