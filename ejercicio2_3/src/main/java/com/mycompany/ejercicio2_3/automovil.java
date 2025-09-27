@@ -37,6 +37,8 @@ public class automovil {
 
     automovil(String marca, short modelo, float motor, combustible tipo_combustible, tipo_automovil automovil,
     byte numero_puertas, byte cantidad_asientos, short velocidad_maxima, color color_vehiculo){
+
+        /* constructor de los objetos del tipo automovil */
     
     this.marca = marca;
     this.modelo = modelo;
@@ -50,6 +52,52 @@ public class automovil {
     this.velocidad_actual = 0;
 
     }
+
+    String getMarca(){
+        return marca;
+    }
+
+    short getModelo(){
+        return modelo;
+    }
+
+    float getMotor(){
+        return motor;
+    }
+
+    combustible getCombustible(){
+        return tipo_combustible;
+    }
+
+    tipo_automovil getTipoAutomovil(){
+        return automovil;
+    }
+
+    byte numero_puertas(){
+        return numero_puertas;
+    }
+
+    byte cantidad_asientos(){
+        return cantidad_asientos;
+    }
+
+    short getVelocidadMaxima(){
+        return velocidad_maxima;
+    }
+
+    color getColor(){
+        return color_vehiculo;
+    }
+
+    short getVelocidadActual(){
+        return velocidad_actual;
+    }
+
+    public void leer_velocidad(){
+
+    }
+
+
     
     
 
