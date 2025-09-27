@@ -33,7 +33,7 @@ public class persona { //creacion del objeto tipo persona
     }
 
     /* metodo para imprimir en consola los atributos del objeto persona */
-    void imprimir(){
+    public void imprimir(){
         /* se imprime por consola todos los atributos del objeto persona con un string acompañandolo por un string que lo
          * identifica
          */

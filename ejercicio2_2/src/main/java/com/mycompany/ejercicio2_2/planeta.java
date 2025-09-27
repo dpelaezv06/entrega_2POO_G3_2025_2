@@ -38,4 +38,21 @@ public class planeta {
         this.observable = observable;
     }
 
+    public static double calcular_densidad(planeta planeta){
+        double densidad;
+        densidad = planeta.masa/planeta.volumen; // calculo de la densidad del planeta en kilogramos / kilometros cubicos
+        return densidad;
+    }
+
+    public void imprimir(){
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Numero de satelites: " + satelites);
+        System.out.println("Masa en kilogramos: " + masa);
+        System.out.println("Volumen en kilometros cubicos: " + volumen);
+        System.out.println("Diametro en kilometros: " + diametro);
+        System.out.println("Distancia promedio al sol en millones de kilometros: " + distancia_sol);
+        System.out.println("Tipo de planeta: " + tipo);
+        System.out.println("Es observable a simple vista: " + observable);
+    }
+
 }
