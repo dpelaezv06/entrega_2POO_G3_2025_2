@@ -166,6 +166,21 @@ public class automovil {
         velocidad_actual = 0;
     }
 
+    public void imprimir(){
+        /* metodo para visualizar en pantalla los atributos de los objetos tipo automovil */
+
+        System.out.println("Marca: " + marca);
+        System.out.println("Modelo: " + modelo);
+        System.out.println("Cilindrada del motor (en litros): " + motor);
+        System.out.println("Tipo de combustible: " + tipo_combustible);
+        System.out.println("Tipo de automovil: " + automovil);
+        System.out.println("Numero de puertas: " + numero_puertas);
+        System.out.println("Numero de asientos: " + cantidad_asientos);
+        System.out.println("Velocidad maxima (en km/h): " + velocidad_maxima);
+        System.out.println("Color: " + color_vehiculo);
+}
+    }
+
 
 
 
