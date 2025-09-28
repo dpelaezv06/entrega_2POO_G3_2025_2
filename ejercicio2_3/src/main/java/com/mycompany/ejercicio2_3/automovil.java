@@ -133,7 +133,13 @@ public class automovil {
     }
 
     public void setVelocidadActual(short velocidad){
-        this.velocidad_actual = velocidad;
+        if (velocidad < 0){
+            System.out.println("La velocidad no puede ser negativa");            
+        }else if (velocidad > velocidad_maxima){
+            System.out.println("La velocidad no puede ser superior a la maxima"); 
+        }else{
+            this.velocidad_actual = velocidad;
+        }
     }
 
     /* metodos para aumentar y disminuir la velocidad actual */
@@ -166,6 +172,12 @@ public class automovil {
         velocidad_actual = 0;
     }
 
+    public double tiempo_llegada(double distancia){
+        /* metodo para estimar el tiempo de llegada a la velocidad actual segun una distancia */
+        double tiempo = distancia/velocidad_actual; // calculo del tiempo
+        return tiempo;        
+    }
+
     public void imprimir(){
         /* metodo para visualizar en pantalla los atributos de los objetos tipo automovil */
 
@@ -178,9 +190,7 @@ public class automovil {
         System.out.println("Numero de asientos: " + cantidad_asientos);
         System.out.println("Velocidad maxima (en km/h): " + velocidad_maxima);
         System.out.println("Color: " + color_vehiculo);
-}
     }
-
 
 
 
