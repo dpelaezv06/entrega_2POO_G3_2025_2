@@ -7,6 +7,7 @@ package com.mycompany.ejercicio2_3;
 import com.mycompany.ejercicio2_3.automovil.color;
 import com.mycompany.ejercicio2_3.automovil.combustible;
 import com.mycompany.ejercicio2_3.automovil.tipo_automovil;
+import com.mycompany.ejercicio2_3.automovil.transmision;
 
 /**
  *
@@ -15,7 +16,8 @@ import com.mycompany.ejercicio2_3.automovil.tipo_automovil;
 public class Ejercicio2_3 {
 
     public static void main(String[] args) {
-        automovil carro = new automovil("Ford", 2018, 3, combustible.DIESEL, tipo_automovil.EJECUTIVO, 5, 6, 250, color.NEGRO);
+        automovil carro = new automovil("Ford", 2018, 3, combustible.DIESEL, tipo_automovil.EJECUTIVO, 
+        5, 6, 250, color.NEGRO, transmision.MANUAL);
 
         carro.imprimir();
         carro.setVelocidadActual(100);

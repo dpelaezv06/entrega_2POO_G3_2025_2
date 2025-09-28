@@ -22,6 +22,8 @@ public class automovil {
         BLANCO, NEGRO, ROJO, NARANJA, AMARILLO, VERDE, AZUL, VIOLETA
     };
 
+    enum transmision{AUTOMATICA, MANUAL};
+
 
     /* atributos de los objetos tipo automovil */
     String marca; // marca del automovil
@@ -34,9 +36,11 @@ public class automovil {
     int velocidad_maxima; // la velocidad maxima alcanzada por el vehiculo
     color color_vehiculo; // el color del automovil
     int velocidad_actual; // velocidad actual del vehiculo
+    transmision transmision; // transmision automatica o manual
+    int multas; // cantidad de multas impuestas
 
     automovil(String marca, int modelo, int motor, combustible tipo_combustible, tipo_automovil automovil,
-    int numero_puertas, int cantidad_asientos, int velocidad_maxima, color color_vehiculo){
+    int numero_puertas, int cantidad_asientos, int velocidad_maxima, color color_vehiculo, transmision transmision){
 
         /* constructor de los objetos del tipo automovil */
     
@@ -50,7 +54,8 @@ public class automovil {
     this.velocidad_maxima = velocidad_maxima;
     this.color_vehiculo = color_vehiculo;
     this.velocidad_actual = 0;
-
+    this.transmision = transmision;
+    this.multas = 0;
     }
 
     /* metodos get para obtener los atributos de los objetos de tipo vehiculo */
@@ -93,6 +98,14 @@ public class automovil {
 
     public int getVelocidadActual(){
         return velocidad_actual;
+    }
+
+    public transmision getTransmision(){
+        return transmision;
+    }
+
+    public int getMultas(){
+        return multas;
     }
 
     /* metodos set para cambiar los atributos del objeto automovil */
@@ -142,6 +155,14 @@ public class automovil {
         }
     }
 
+    public void setTransmision(transmision transmision){
+        this.transmision = transmision;
+    }
+
+    public void setMultas(int numero_multas){
+        this.multas = numero_multas;
+    }
+
     /* metodos para aumentar y disminuir la velocidad actual */
 
     public void acelerar(int incremento_velocidad){
@@ -152,6 +173,7 @@ public class automovil {
         velocidad = velocidad_actual + incremento_velocidad; //se calcula la nueva velocidad tras el incremento
         if (velocidad > velocidad_maxima){
             System.out.println("El incremento solicitado excede la velocidad maxima");
+            this.multas += 1; // en caso de intentar sobrepasar el limite de velocidad entonces se suma uno al contadro de multas
         }else{
             velocidad_actual = velocidad; // en otro caso, el incremento es permitido, y se guarda el nuevo valor de velocidad
         }
@@ -190,5 +212,19 @@ public class automovil {
         System.out.println("Numero de asientos: " + cantidad_asientos);
         System.out.println("Velocidad maxima (en km/h): " + velocidad_maxima);
         System.out.println("Color: " + color_vehiculo);
+        System.out.println("Transimision automatica: " + transmision);
+    }
+
+    public void tiene_multas(){
+        if (multas == 0){
+            System.out.println("El vehiculo no registra multas");
+        }else{
+            System.out.println("El vehiculo registra multas");
+        }
+    }
+
+    public int consultar_multas(){
+        System.out.println("El vehiculo registra" + multas + "multas");
+        return multas;
     }
 }
