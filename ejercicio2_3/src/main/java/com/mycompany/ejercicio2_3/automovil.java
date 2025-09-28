@@ -25,18 +25,18 @@ public class automovil {
 
     /* atributos de los objetos tipo automovil */
     String marca; // marca del automovil
-    short modelo; // año de fabricacion
-    float motor; // cilindrada en litros del motor
+    int modelo; // año de fabricacion
+    int motor; // cilindrada en litros del motor
     combustible tipo_combustible; // tipo de combustible del automovil
     tipo_automovil automovil; // tipo de vehiculo
-    byte numero_puertas; // numero de puertas del automovil
-    byte cantidad_asientos; // numero de asientos en el automovil
-    short velocidad_maxima; // la velocidad maxima alcanzada por el vehiculo
+    int numero_puertas; // numero de puertas del automovil
+    int cantidad_asientos; // numero de asientos en el automovil
+    int velocidad_maxima; // la velocidad maxima alcanzada por el vehiculo
     color color_vehiculo; // el color del automovil
-    short velocidad_actual; // velocidad actual del vehiculo
+    int velocidad_actual; // velocidad actual del vehiculo
 
-    automovil(String marca, short modelo, float motor, combustible tipo_combustible, tipo_automovil automovil,
-    byte numero_puertas, byte cantidad_asientos, short velocidad_maxima, color color_vehiculo){
+    automovil(String marca, int modelo, int motor, combustible tipo_combustible, tipo_automovil automovil,
+    int numero_puertas, int cantidad_asientos, int velocidad_maxima, color color_vehiculo){
 
         /* constructor de los objetos del tipo automovil */
     
@@ -59,11 +59,11 @@ public class automovil {
         return marca;
     }
 
-    public short getModelo(){
+    public int getModelo(){
         return modelo;
     }
 
-    public float getMotor(){
+    public int getMotor(){
         return motor;
     }
 
@@ -75,15 +75,15 @@ public class automovil {
         return automovil;
     }
 
-    public byte numero_puertas(){
+    public int numero_puertas(){
         return numero_puertas;
     }
 
-    public byte cantidad_asientos(){
+    public int cantidad_asientos(){
         return cantidad_asientos;
     }
 
-    public short getVelocidadMaxima(){
+    public int getVelocidadMaxima(){
         return velocidad_maxima;
     }
 
@@ -91,7 +91,7 @@ public class automovil {
         return color_vehiculo;
     }
 
-    public short getVelocidadActual(){
+    public int getVelocidadActual(){
         return velocidad_actual;
     }
 
@@ -100,15 +100,15 @@ public class automovil {
         this.marca = marca;
     }
 
-    public void setModelo(short modelo){
+    public void setModelo(int modelo){
         this.modelo = modelo;
     }
 
-    public void setMotor(float motor){
+    public void setMotor(int motor){
         this.motor = motor;
     }
 
-    public void setCombustible(tipo_combustible combustible){
+    public void setCombustible(combustible combustible){
         this.tipo_combustible = combustible;
     }
 
@@ -116,15 +116,15 @@ public class automovil {
         this.automovil = automovil;
     }
 
-    public void setNumeroPuertas(byte numero_puertas){
+    public void setNumeroPuertas(int numero_puertas){
         this.numero_puertas = numero_puertas;
     }
 
-    public void setCantidadAsientos(byte asientos){
+    public void setCantidadAsientos(int asientos){
         this.cantidad_asientos = asientos;
     }
 
-    public void setVelocidadMaxima(short velocidad){
+    public void setVelocidadMaxima(int velocidad){
         this.velocidad_maxima = velocidad;
     }
 
@@ -132,7 +132,7 @@ public class automovil {
         this.color_vehiculo = color;
     }
 
-    public void setVelocidadActual(short velocidad){
+    public void setVelocidadActual(int velocidad){
         if (velocidad < 0){
             System.out.println("La velocidad no puede ser negativa");            
         }else if (velocidad > velocidad_maxima){
@@ -144,10 +144,10 @@ public class automovil {
 
     /* metodos para aumentar y disminuir la velocidad actual */
 
-    public void acelerar(short incremento_velocidad){
+    public void acelerar(int incremento_velocidad){
         /* metodo para aumentar la velocidad */
 
-        short velocidad; // variable para guardar la velocidad nueva luego del incremento
+        int velocidad; // variable para guardar la velocidad nueva luego del incremento
 
         velocidad = velocidad_actual + incremento_velocidad; //se calcula la nueva velocidad tras el incremento
         if (velocidad > velocidad_maxima){
@@ -157,7 +157,7 @@ public class automovil {
         }
     }
 
-    public void frenar(short decremento){
+    public void frenar(int decremento){
         /* metodo para decrementar la velocidad actual */
         if (decremento > velocidad_actual){ // caso que se solicite decrementar mas de la velocidad actual
             System.err.println("El decremento solicitado resultaria en una velocidad negativa");
@@ -191,8 +191,4 @@ public class automovil {
         System.out.println("Velocidad maxima (en km/h): " + velocidad_maxima);
         System.out.println("Color: " + color_vehiculo);
     }
-
-
-
-
 }
