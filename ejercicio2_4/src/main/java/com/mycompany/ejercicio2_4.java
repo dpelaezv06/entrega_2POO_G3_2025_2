@@ -29,11 +29,13 @@ public class ejercicio2_4 {
     System.out.println("El perimetro del triangulo es = " + figura4.
     calcularPerimetro() + " u");
     figura4.determinarTipoTriangulo();
+    System.out.println();
 
     System.out.println("El area del Rombo es = " + figura5.
     calcularArea() + " u^2");
     System.out.println("El perimetro del Rombo es = " + figura5.
     calcularPerimetro() + " u");
+    System.out.println();
 
     System.out.println("El area del Trapecio es = " + figura6.
     calcularArea() + " u^2");
