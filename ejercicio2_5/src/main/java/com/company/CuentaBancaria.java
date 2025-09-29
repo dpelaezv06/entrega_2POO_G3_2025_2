@@ -15,8 +15,11 @@ public class CuentaBancaria {
     /* Atributo que define el saldo de la cuenta bancaria con valor inicial
     cero */
     float saldo = 0;
-    /**
-    * Constructor de la clase CuentaBancaria
+
+    /*Atributo que define la tasa de interés aplicado a la cuenta */
+    float interes = 0;
+    
+    /** Constructor de la clase CuentaBancaria
     * @param nombresTitular Parámetro que define los nombres del
     * titular de una cuenta bancaria
     * @param apellidosTitular Parámetro que define los apellidos del
@@ -25,16 +28,19 @@ public class CuentaBancaria {
     * cuenta bancaria
     * @param tipoCuenta Parámetro que define el tipo de una cuenta
     * bancaria (puede ser ahorros o corriente)
-    */
+    * @param interes  parámetro que define la tasa de interés de la
+    * cuenta bancaria **/
+    
 
     CuentaBancaria(String nombresTitular, String apellidosTitular, int
-    numeroCuenta, tipo tipoCuenta) {
+    numeroCuenta, tipo tipoCuenta, float interes) {
     /* Tener en cuenta que no se pasa como parámetro el saldo ya
     que inicialmente es cero. */
     this.nombresTitular = nombresTitular;
     this.apellidosTitular = apellidosTitular;
     this.númeroCuenta = numeroCuenta;
     this.tipoCuenta = tipoCuenta;
+    this.interes = interes;
     }
     /**
     * Método que imprime en pantalla los datos de una cuenta bancaria
@@ -45,6 +51,7 @@ public class CuentaBancaria {
     System.out.println("Número de cuenta = " + númeroCuenta);
     System.out.println("Tipo de cuenta = " + tipoCuenta);
     System.out.println("Saldo = " + saldo);
+    System.out.println("Tasa de interés mensual = " + interes + "%");
     }
     /**
     * Método que imprime en pantalla el saldo actual de una cuenta
@@ -67,7 +74,7 @@ public class CuentaBancaria {
     saldo = saldo + valor; /* Se actualiza el saldo de la cuenta con
     el valor consignado */
    
-    System.out.println("Se ha consignado $" + valor + "en la cuenta. El nuevo saldo es $" + saldo);
+    System.out.println("Se ha consignado: $" + valor + " en la cuenta. El nuevo saldo es $" + saldo);
     return true;
     } else {
     System.out.println("El valor a consignar debe ser mayor que cero.");
@@ -88,12 +95,37 @@ public class CuentaBancaria {
     if ((valor > 0) && (valor <= saldo)) {
     saldo = saldo - valor; /* Se actualiza el saldo de la cuenta con
     el valor retirado */
-    System.out.println("se ha retirado: $" + valor + "El nuevo salgo es: $"+saldo);
+    System.out.println("se ha retirado: $" + valor + "El nuevo saldo es: $"+saldo);
 
     return true;
     } else {
     System.out.print("El valor a retirar debe ser mejor que el saldo actual");
     return false;
     }
+    }
+
+    /** 
+     * método que realiza el cálculo de retención mensual con base en el saldo disponible
+     * @param calculo_interes
+     * 
+     * **/
+    void interes_mensual(){
+        if (interes < 0) {
+            float calculo_interes = saldo + saldo*interes/100;
+            System.out.println("Se ha aplicado la tasa de interés sobre el saldo " + interes + "%.");
+            System.out.println("Saldo neto disminuyó al valor de: $" + calculo_interes);
+        }
+        else if(interes == 0){
+            System.out.println("No hay tasa de interes " + interes + "%.");
+            System.out.println("Saldo neto de: $" + saldo);
+
+
+        }
+        else{
+        float calculo_interes = saldo + saldo*interes/100;
+        System.out.println("Se ha aplicado la tasa de interés sobre el saldo " + interes + "%.");
+        System.out.println("Saldo neto aumentó al valor de: $" + calculo_interes);
+        }
+
     }
 }
