@@ -6,7 +6,7 @@ public class Rectangulo {
     int altura; // Atributo que define la altura de un rectángulo
     /**
     * Constructor de la clase Rectangulo
-    * @param base Parámetro que define la base de un rectángulo
+    * @param base Parámetro que define la base de un rectángulo 
     * @param altura Parámetro que define la altura de un rectángulo
     */
     Rectangulo(int base, int altura) {

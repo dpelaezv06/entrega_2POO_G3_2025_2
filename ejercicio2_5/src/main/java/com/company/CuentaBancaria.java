@@ -95,7 +95,7 @@ public class CuentaBancaria {
     if ((valor > 0) && (valor <= saldo)) {
     saldo = saldo - valor; /* Se actualiza el saldo de la cuenta con
     el valor retirado */
-    System.out.println("se ha retirado: $" + valor + "El nuevo saldo es: $"+saldo);
+    System.out.println("se ha retirado: $" + valor + " El nuevo saldo es: $"+saldo);
 
     return true;
     } else {
