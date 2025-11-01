@@ -60,7 +60,7 @@ public class Ventana_principal extends javax.swing.JFrame {
             }
         });
 
-        label_mensaje.setText(" ");
+        label_mensaje.setText("El número debe ser mayor que cero.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,7 +109,7 @@ public class Ventana_principal extends javax.swing.JFrame {
                     .addComponent(boton_limpiar))
                 .addGap(29, 29, 29)
                 .addComponent(label_mensaje)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
@@ -131,7 +131,7 @@ public class Ventana_principal extends javax.swing.JFrame {
             campo_raizCuadrada.setText(String.valueOf(raiz_cuadrada));
             
         } else {
-            label_mensaje.setText("Error: El número debe ser mayor que cero.");
+            label_mensaje.setText("El número debe ser mayor que cero.");
             campo_logaritmoNatural.setText("");
             campo_raizCuadrada.setText("");
         }

@@ -79,7 +79,7 @@
               </Group>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Component id="label_mensaje" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="82" max="32767" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -124,7 +124,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="label_mensaje">
       <Properties>
-        <Property name="text" type="java.lang.String" value=" "/>
+        <Property name="text" type="java.lang.String" value="El n&#xfa;mero debe ser mayor que cero."/>
       </Properties>
     </Component>
   </SubComponents>
