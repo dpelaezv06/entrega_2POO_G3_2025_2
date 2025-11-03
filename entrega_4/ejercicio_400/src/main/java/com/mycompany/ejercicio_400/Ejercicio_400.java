@@ -11,6 +11,8 @@ package com.mycompany.ejercicio_400;
 public class Ejercicio_400 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        ventanaPrincipal ventana = new ventanaPrincipal();
+        ventana.setVisible(true);
+        ventana.setResizable(false);
     }
 }
