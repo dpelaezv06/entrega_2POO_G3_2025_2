@@ -1,4 +1,6 @@
-package Excepciones;
+package com.mycompany;
+
+//package Excepciones;
 import java.util.*;
 /**
 * Esta clase denominada EquipoMaratonProgramacion modela un
@@ -8,7 +10,6 @@ import java.util.*;
 * competición, el tamaño del equipo y un array de programadores.
 * @version 1.2/2020
 */
-
 public class EquipoMaratonProgramacion {
 /* Atributo que define el nombre el equipo de la maratón de
 programación */
@@ -35,15 +36,14 @@ int tamañoEquipo;
 * de programación que utilizará el equipo de la maratón de
 * programación
 */
-EquipoMaratonProgramacion(String nombreEquipo, String
-universidad, String lenguajeProgramacion) {
-this.nombreEquipo = nombreEquipo;
-this.universidad = this.universidad;
-this.lenguajeProgramacion = this.lenguajeProgramacion;
-this.programadores = this.programadores;
-tamañoEquipo = 0; // El tamaño del equipo inicialmente es cero
-programadores = new Programador[3]; /* Crea un array con tres
-programadores */
+EquipoMaratonProgramacion(String nombreEquipo, String universidad, String lenguajeProgramacion) {
+    this.nombreEquipo = nombreEquipo;
+    this.universidad = this.universidad;
+    this.lenguajeProgramacion = this.lenguajeProgramacion;
+    this.programadores = this.programadores;
+    tamañoEquipo = 0; // El tamaño del equipo inicialmente es cero
+    programadores = new Programador[3]; /* Crea un array con tres
+    programadores */
 }
 /**
 * Método que determina si el array de programadores del equipo
@@ -133,4 +133,3 @@ array de programadores */
 }
 }
 }
-

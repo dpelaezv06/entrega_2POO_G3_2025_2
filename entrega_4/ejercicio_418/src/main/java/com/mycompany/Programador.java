@@ -1,4 +1,6 @@
-package Excepciones;
+package com.mycompany;
+
+//      package Excepciones;
 /**
 * Esta clase denominada Programador modela un integrante de un
 * equipo de programadores que participará en una maratón de

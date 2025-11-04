@@ -1,14 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package com.mycompany.ejercicio_406;
+package com.mycompany;
 
-/**
- *
- * @author daniel
- */
-public class ventana_principal extends javax.swing.JFrame {
+
+public class VentanaPrincipal extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ventana_principal.class.getName());
 
@@ -213,3 +206,4 @@ public class ventana_principal extends javax.swing.JFrame {
     private javax.swing.JLabel label_nombre;
     // End of variables declaration//GEN-END:variables
 }
+
