@@ -163,6 +163,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
         if (denominador == 0){
             label_numerico.setText("División inválida");
+            campo_resultado.setText("");
         } else {
             campo_resultado.setText(String.valueOf(resultado));
             label_numerico.setText("División válida");
