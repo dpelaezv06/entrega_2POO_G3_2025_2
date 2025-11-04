@@ -167,8 +167,14 @@ public class ventana_principal extends javax.swing.JFrame {
             label_mensaje.setText("Datos mostrados correctamente.");
         } catch (NumberFormatException e) {
             label_mensaje.setText("Error: La edad debe ser un número entero.");
+            label_apellido.setText("Apellido:");
+            label_nombre.setText("Nombre:");
+            label_edad.setText("Edad:");
         } catch (IllegalArgumentException e) {
             label_mensaje.setText("Error: " + e.getMessage());
+            label_apellido.setText("Apellido:");
+            label_nombre.setText("Nombre:");
+            label_edad.setText("Edad:");
         }
                
         

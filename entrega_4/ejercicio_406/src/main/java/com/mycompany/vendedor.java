@@ -21,7 +21,7 @@ public class vendedor {
     }
 
     void verificarEdad(int edad){
-        if (edad < 18){
+        if (edad >0 && edad < 18){
             throw new IllegalArgumentException("El vendedor debe ser mayor de 18 años.");
         }if (edad >= 0 && edad <= 120){
             this.edad = edad;
