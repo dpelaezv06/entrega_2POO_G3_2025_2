@@ -11,6 +11,8 @@ package com.mycompany.directorio_amigos;
 public class Directorio_amigos {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Ventana_principal ventana = new Ventana_principal();
+        ventana.setVisible(true);
+        ventana.setResizable(false);
     }
 }

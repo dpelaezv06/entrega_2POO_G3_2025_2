@@ -4,6 +4,9 @@
  */
 package com.mycompany.directorio_amigos;
 
+import java.io.File;
+import java.io.RandomAccessFile;
+
 /**
  *
  * @author daniel
@@ -36,6 +39,8 @@ public class Ventana_principal extends javax.swing.JFrame {
         boton_leer = new javax.swing.JButton();
         boton_actualizar = new javax.swing.JButton();
         boton_borrar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        area_mensajes = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,12 +49,21 @@ public class Ventana_principal extends javax.swing.JFrame {
         label_numero.setText("Número");
 
         boton_crear.setText("Crear");
+        boton_crear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_crearActionPerformed(evt);
+            }
+        });
 
         boton_leer.setText("Leer");
 
         boton_actualizar.setText("Actualizar");
 
         boton_borrar.setText("Borrar");
+
+        area_mensajes.setColumns(20);
+        area_mensajes.setRows(5);
+        jScrollPane1.setViewportView(area_mensajes);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -68,13 +82,16 @@ public class Ventana_principal extends javax.swing.JFrame {
                             .addComponent(campo_numero, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(boton_crear)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(boton_leer)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(boton_actualizar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(boton_borrar)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(boton_crear)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(boton_leer)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(boton_actualizar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(boton_borrar)))))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -94,11 +111,64 @@ public class Ventana_principal extends javax.swing.JFrame {
                     .addComponent(boton_leer)
                     .addComponent(boton_actualizar)
                     .addComponent(boton_borrar))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void boton_crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_crearActionPerformed
+        // TODO add your handling code here:
+        /* accion realizada cuando se pulsa el boton crear */
+
+        try {
+            String nombre_igresado = campo_nombre.getText(); // se obtiene el nombre ingresado en el campo de texto
+            long numero_ingresado = Long.parseLong(campo_numero.getText()); // se obiene el numero ingresado en el campo de texto correspondiente y se convierta a long
+            String numero_string = campo_numero.getText();
+            String nombre;
+            long numero;
+            int indice;
+            boolean encontrado = false;
+            String linea;
+
+
+            File archivo = new File("entrega_5/directorio_amigos/src/main/java/com/mycompany/directorio_amigos/files/archivo_directorio.txt"); // se crea un objeto File con la ruta del archivo
+            if (archivo.exists() == false){
+                /* si el archivo no existe, entonces lo crea */
+                archivo.createNewFile();
+            }
+            RandomAccessFile raf = new RandomAccessFile(archivo, "rw");
+
+            /* se recorre el archivo para verificar si el nuevo nombre existe o no existe */
+            while (raf.getFilePointer() < raf.length()) {
+                linea = raf.readLine(); // se lee una linea del archivo
+                String [] registro = linea.split("!"); // see separa la linea en nombre y numero con el caracter clave '!'
+
+                nombre = registro[0]; // se obtiene el nombre del registro actual 
+                numero = Long.parseLong(registro[1]); // se obriene el numero del registro actual
+
+                if (nombre.equals(nombre_igresado) || numero == numero_ingresado){
+                    encontrado = true;
+                    area_mensajes.append("El nombre o número ya existe en el directorio.\n");
+                    break;
+                }
+                
+            }
+            if (encontrado == false){
+                raf.writeBytes(nombre_igresado + "!" + numero_string);
+            }
+
+
+        }catch (Exception e){
+
+        }
+
+
+        
+        
+    }//GEN-LAST:event_boton_crearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,12 +196,14 @@ public class Ventana_principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea area_mensajes;
     private javax.swing.JButton boton_actualizar;
     private javax.swing.JButton boton_borrar;
     private javax.swing.JButton boton_crear;
     private javax.swing.JButton boton_leer;
     private javax.swing.JTextField campo_nombre;
     private javax.swing.JTextField campo_numero;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label_nombre;
     private javax.swing.JLabel label_numero;
     // End of variables declaration//GEN-END:variables
