@@ -44,8 +44,9 @@ public class Ventana_principal extends javax.swing.JFrame {
         boton_borrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         area_mensajes = new javax.swing.JTextArea();
-        boton_limpiar = new javax.swing.JButton();
+        boton_limpiarMensajes = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        boton_limpiarCeldas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,52 +71,57 @@ public class Ventana_principal extends javax.swing.JFrame {
         area_mensajes.setRows(5);
         jScrollPane1.setViewportView(area_mensajes);
 
-        boton_limpiar.setText("Limpiar mensajes");
-        boton_limpiar.addActionListener(new java.awt.event.ActionListener() {
+        boton_limpiarMensajes.setText("Limpiar mensajes");
+        boton_limpiarMensajes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_limpiarActionPerformed(evt);
+                boton_limpiarMensajesActionPerformed(evt);
             }
         });
 
         jLabel1.setText("Historial de acciones");
+
+        boton_limpiarCeldas.setText("Limpiar celdas");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
+                        .addComponent(boton_crear)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(boton_leer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(boton_actualizar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(boton_borrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(boton_limpiarCeldas))
+                    .addComponent(jLabel1)
+                    .addComponent(jScrollPane1))
+                .addContainerGap(21, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label_nombre)
                             .addComponent(label_numero))
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(campo_nombre)
-                            .addComponent(campo_numero, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(101, 101, 101)
-                                .addComponent(boton_limpiar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(boton_crear)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(boton_leer)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(boton_actualizar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(boton_borrar))
-                            .addComponent(jLabel1))))
-                .addContainerGap(30, Short.MAX_VALUE))
+                            .addComponent(campo_numero, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(101, 101, 101))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(boton_limpiarMensajes)
+                        .addGap(191, 191, 191))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label_nombre)
                     .addComponent(campo_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -123,19 +129,20 @@ public class Ventana_principal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label_numero)
                     .addComponent(campo_numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(boton_crear)
                     .addComponent(boton_leer)
                     .addComponent(boton_actualizar)
-                    .addComponent(boton_borrar))
+                    .addComponent(boton_borrar)
+                    .addComponent(boton_limpiarCeldas))
                 .addGap(24, 24, 24)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(boton_limpiar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(boton_limpiarMensajes)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
@@ -195,6 +202,8 @@ public class Ventana_principal extends javax.swing.JFrame {
 
         }catch (IOException ioe){
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error abriendo o creando el archivo.");
+        }catch (NumberFormatException nfe){
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error con el formato del número.");
         }
 
 
@@ -202,12 +211,12 @@ public class Ventana_principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_boton_crearActionPerformed
 
-    private void boton_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_limpiarActionPerformed
+    private void boton_limpiarMensajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_limpiarMensajesActionPerformed
         // TODO add your handling code here:
         area_mensajes.setText("");        
         
         
-    }//GEN-LAST:event_boton_limpiarActionPerformed
+    }//GEN-LAST:event_boton_limpiarMensajesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,7 +249,8 @@ public class Ventana_principal extends javax.swing.JFrame {
     private javax.swing.JButton boton_borrar;
     private javax.swing.JButton boton_crear;
     private javax.swing.JButton boton_leer;
-    private javax.swing.JButton boton_limpiar;
+    private javax.swing.JButton boton_limpiarCeldas;
+    private javax.swing.JButton boton_limpiarMensajes;
     private javax.swing.JTextField campo_nombre;
     private javax.swing.JTextField campo_numero;
     private javax.swing.JLabel jLabel1;
