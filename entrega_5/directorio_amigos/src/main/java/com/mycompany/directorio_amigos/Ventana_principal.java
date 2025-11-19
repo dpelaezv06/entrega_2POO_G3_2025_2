@@ -41,6 +41,7 @@ public class Ventana_principal extends javax.swing.JFrame {
         boton_borrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         area_mensajes = new javax.swing.JTextArea();
+        boton_limpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,6 +65,13 @@ public class Ventana_principal extends javax.swing.JFrame {
         area_mensajes.setColumns(20);
         area_mensajes.setRows(5);
         jScrollPane1.setViewportView(area_mensajes);
+
+        boton_limpiar.setText("Limpiar mensajes");
+        boton_limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_limpiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,7 +99,10 @@ public class Ventana_principal extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(boton_actualizar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(boton_borrar)))))
+                                .addComponent(boton_borrar))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(131, 131, 131)
+                        .addComponent(boton_limpiar)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -113,7 +124,9 @@ public class Ventana_principal extends javax.swing.JFrame {
                     .addComponent(boton_borrar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(boton_limpiar)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -157,8 +170,10 @@ public class Ventana_principal extends javax.swing.JFrame {
                 
             }
             if (encontrado == false){
-                raf.writeBytes(nombre_igresado + "!" + numero_string);
+                raf.writeBytes(nombre_igresado + "!" + numero_string + "\n");
+                area_mensajes.append("Amigo agregado correctamente.\n");1
             }
+
 
 
         }catch (Exception e){
@@ -169,6 +184,13 @@ public class Ventana_principal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_boton_crearActionPerformed
+
+    private void boton_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_limpiarActionPerformed
+        // TODO add your handling code here:
+        area_mensajes.setText("");        
+        
+        
+    }//GEN-LAST:event_boton_limpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,6 +223,7 @@ public class Ventana_principal extends javax.swing.JFrame {
     private javax.swing.JButton boton_borrar;
     private javax.swing.JButton boton_crear;
     private javax.swing.JButton boton_leer;
+    private javax.swing.JButton boton_limpiar;
     private javax.swing.JTextField campo_nombre;
     private javax.swing.JTextField campo_numero;
     private javax.swing.JScrollPane jScrollPane1;
