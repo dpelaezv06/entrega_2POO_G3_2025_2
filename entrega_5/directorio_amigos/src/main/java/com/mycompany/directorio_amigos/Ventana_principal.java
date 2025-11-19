@@ -5,6 +5,7 @@
 package com.mycompany.directorio_amigos;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.RandomAccessFile;
 
 import javax.swing.JOptionPane;
@@ -44,6 +45,7 @@ public class Ventana_principal extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         area_mensajes = new javax.swing.JTextArea();
         boton_limpiar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,6 +77,8 @@ public class Ventana_principal extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Historial de acciones");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,16 +99,17 @@ public class Ventana_principal extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(101, 101, 101)
+                                .addComponent(boton_limpiar))
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(boton_crear)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(boton_leer)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(boton_actualizar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(boton_borrar))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(boton_limpiar)))
+                                .addComponent(boton_borrar))
+                            .addComponent(jLabel1))))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -124,11 +129,13 @@ public class Ventana_principal extends javax.swing.JFrame {
                     .addComponent(boton_leer)
                     .addComponent(boton_actualizar)
                     .addComponent(boton_borrar))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(boton_limpiar)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -168,7 +175,7 @@ public class Ventana_principal extends javax.swing.JFrame {
                     encontrado = true;
                     JOptionPane.showMessageDialog(null, "El nombre o el número ya existen en el directorio."); // se muestra un mensaje de error
                     raf.close(); // se cierra el archivo
-
+                    area_mensajes.append("\nEl nombre o el número ya existen, por favor modifique la entrada.\n"); // se pide al usuario modificar la entrada
                     break;
                 }
                 
@@ -180,12 +187,14 @@ public class Ventana_principal extends javax.swing.JFrame {
                 raf.close(); // se cierra el archivo
                 campo_nombre.setText(""); // se limpia el campo de texto del nombre
                 campo_numero.setText(""); // se limpia el campo de texto del numero
+                area_mensajes.append("\nAmigo agregado al directorio correctamente.\n"); // se muestra el mensaje en el area de mensajes
+                area_mensajes.append("Nombre: " + nombre_igresado + ", Número: " + numero_string + "\n"); // se muestra el contacto agregado
             }
 
 
 
-        }catch (Exception e){
-
+        }catch (IOException ioe){
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error abriendo o creando el archivo.");            
         }
 
 
@@ -234,6 +243,7 @@ public class Ventana_principal extends javax.swing.JFrame {
     private javax.swing.JButton boton_limpiar;
     private javax.swing.JTextField campo_nombre;
     private javax.swing.JTextField campo_numero;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label_nombre;
     private javax.swing.JLabel label_numero;
