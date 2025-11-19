@@ -129,9 +129,9 @@ public class Ventana_principal extends javax.swing.JFrame {
                     .addComponent(boton_leer)
                     .addComponent(boton_actualizar)
                     .addComponent(boton_borrar))
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(boton_limpiar)
@@ -194,7 +194,7 @@ public class Ventana_principal extends javax.swing.JFrame {
 
 
         }catch (IOException ioe){
-            JOptionPane.showMessageDialog(null, "Ha ocurrido un error abriendo o creando el archivo.");            
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error abriendo o creando el archivo.");
         }
 
 
