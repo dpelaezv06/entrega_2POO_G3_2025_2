@@ -47,6 +47,8 @@ public class Ventana_principal extends javax.swing.JFrame {
         boton_limpiarMensajes = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         boton_limpiarCeldas = new javax.swing.JButton();
+        boton_limpiarNombre = new javax.swing.JButton();
+        boton_limpiarNumero = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,6 +64,11 @@ public class Ventana_principal extends javax.swing.JFrame {
         });
 
         boton_leer.setText("Leer");
+        boton_leer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_leerActionPerformed(evt);
+            }
+        });
 
         boton_actualizar.setText("Actualizar");
 
@@ -81,14 +88,49 @@ public class Ventana_principal extends javax.swing.JFrame {
         jLabel1.setText("Historial de acciones");
 
         boton_limpiarCeldas.setText("Limpiar celdas");
+        boton_limpiarCeldas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_limpiarCeldasActionPerformed(evt);
+            }
+        });
+
+        boton_limpiarNombre.setText("Limpiar");
+        boton_limpiarNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_limpiarNombreActionPerformed(evt);
+            }
+        });
+
+        boton_limpiarNumero.setText("Limpiar");
+        boton_limpiarNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_limpiarNumeroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(194, Short.MAX_VALUE)
+                .addComponent(boton_limpiarMensajes)
+                .addGap(191, 191, 191))
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label_nombre)
+                            .addComponent(label_numero))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(campo_nombre)
+                            .addComponent(campo_numero, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(boton_limpiarNombre, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(boton_limpiarNumero, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(boton_crear)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -101,22 +143,7 @@ public class Ventana_principal extends javax.swing.JFrame {
                         .addComponent(boton_limpiarCeldas))
                     .addComponent(jLabel1)
                     .addComponent(jScrollPane1))
-                .addContainerGap(21, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label_nombre)
-                            .addComponent(label_numero))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(campo_nombre)
-                            .addComponent(campo_numero, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(101, 101, 101))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(boton_limpiarMensajes)
-                        .addGap(191, 191, 191))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,11 +151,13 @@ public class Ventana_principal extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label_nombre)
-                    .addComponent(campo_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campo_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boton_limpiarNombre))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label_numero)
-                    .addComponent(campo_numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campo_numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boton_limpiarNumero))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(boton_crear)
@@ -158,7 +187,6 @@ public class Ventana_principal extends javax.swing.JFrame {
             String numero_string = campo_numero.getText();
             String nombre;
             long numero;
-            int indice;
             boolean encontrado = false;
             String linea;
 
@@ -170,45 +198,49 @@ public class Ventana_principal extends javax.swing.JFrame {
             }
             RandomAccessFile raf = new RandomAccessFile(archivo, "rw");
 
-            /* se recorre el archivo para verificar si el nuevo nombre existe o no existe */
-            while (raf.getFilePointer() < raf.length()) {
-                linea = raf.readLine(); // se lee una linea del archivo
-                String [] registro = linea.split("!"); // see separa la linea en nombre y numero con el caracter clave '!'
 
-                nombre = registro[0]; // se obtiene el nombre del registro actual 
-                numero = Long.parseLong(registro[1]); // se obriene el numero del registro actual
-
-                if (nombre.equals(nombre_igresado) || numero == numero_ingresado){
-                    encontrado = true;
-                    JOptionPane.showMessageDialog(null, "El nombre o el número ya existen en el directorio."); // se muestra un mensaje de error
-                    raf.close(); // se cierra el archivo
-                    area_mensajes.append("\nEl nombre o el número ya existen, por favor modifique la entrada.\n"); // se pide al usuario modificar la entrada
-                    break;
-                }
-                
-            }
-            if (encontrado == false){
-                raf.writeBytes(nombre_igresado + "!" + numero_string); // se escribe el nuevo registro en el archivo
-                raf.writeBytes(System.lineSeparator()); // se escribe un salto de linea
-                JOptionPane.showMessageDialog(null, "Amigo agregado al directorio correctamente."); // se muestra un mensaje de confirmacion
+            if (nombre_igresado.isEmpty() || campo_numero.getText().isEmpty()){
+                /* si alguno de los campos esta vacio */
+                JOptionPane.showMessageDialog(null, "Por favor complete ambos campos antes de agregar un amigo al directorio."); // se muestra un mensaje de error
                 raf.close(); // se cierra el archivo
-                campo_nombre.setText(""); // se limpia el campo de texto del nombre
-                campo_numero.setText(""); // se limpia el campo de texto del numero
-                area_mensajes.append("\nAmigo agregado al directorio correctamente.\n"); // se muestra el mensaje en el area de mensajes
-                area_mensajes.append("Nombre: " + nombre_igresado + ", Número: " + numero_string + "\n"); // se muestra el contacto agregado
+                area_mensajes.append("\nError: Por favor complete ambos campos antes de agregar un amigo al directorio.\n"); // se pide al usuario completar ambos campos
+            }else{
+                /* si ambos campos estan llenos, se procede a agregar el nuevo amigo */
+                
+                /* se recorre el archivo para verificar si el nuevo nombre existe o no existe */
+                while (raf.getFilePointer() < raf.length()) {
+                    linea = raf.readLine(); // se lee una linea del archivo
+                    String [] registro = linea.split("!"); // see separa la linea en nombre y numero con el caracter clave '!'
+
+                    nombre = registro[0]; // se obtiene el nombre del registro actual 
+                    numero = Long.parseLong(registro[1]); // se obriene el numero del registro actual
+                    
+                    if (nombre.equals(nombre_igresado) || numero == numero_ingresado){
+                        encontrado = true;
+                        JOptionPane.showMessageDialog(null, "El nombre o el número ya existen en el directorio."); // se muestra un mensaje de error
+                        raf.close(); // se cierra el archivo
+                        area_mensajes.append("\nEl nombre o el número ya existen, por favor modifique la entrada.\n"); // se pide al usuario modificar la entrada
+                        break;
+                    }
+                
+                }
+                if (encontrado == false){
+                    raf.writeBytes(nombre_igresado + "!" + numero_string); // se escribe el nuevo registro en el archivo
+                    raf.writeBytes(System.lineSeparator()); // se escribe un salto de linea
+                    JOptionPane.showMessageDialog(null, "Amigo agregado al directorio correctamente."); // se muestra un mensaje de confirmacion
+                    raf.close(); // se cierra el archivo
+                    campo_nombre.setText(""); // se limpia el campo de texto del nombre
+                    campo_numero.setText(""); // se limpia el campo de texto del numero
+                    area_mensajes.append("\nAmigo agregado al directorio correctamente.\n"); // se muestra el mensaje en el area de mensajes
+                    area_mensajes.append("Nombre: " + nombre_igresado + ", Número: " + numero_string + "\n"); // se muestra el contacto agregado
+                }
+
             }
-
-
-
         }catch (IOException ioe){
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error abriendo o creando el archivo.");
         }catch (NumberFormatException nfe){
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error con el formato del número.");
-        }
-
-
-        
-        
+        }      
     }//GEN-LAST:event_boton_crearActionPerformed
 
     private void boton_limpiarMensajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_limpiarMensajesActionPerformed
@@ -217,6 +249,72 @@ public class Ventana_principal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_boton_limpiarMensajesActionPerformed
+
+    private void boton_limpiarCeldasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_limpiarCeldasActionPerformed
+        // TODO add your handling code here:
+        campo_nombre.setText(""); // se borra lo que haya en nombre
+        campo_numero.setText(""); // se borra lo que haya en numero
+    }//GEN-LAST:event_boton_limpiarCeldasActionPerformed
+
+    private void boton_leerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_leerActionPerformed
+        // TODO add your handling code here:
+        try {
+            String nombre;
+            String nombre_ingresado = campo_nombre.getText();
+            String numero_ingresado = campo_numero.getText();
+            String numero_string;
+            String linea;
+            boolean encontrado = false;
+
+            File archivo = new File ("entrega_5/directorio_amigos/src/main/java/com/mycompany/directorio_amigos/files/archivo_directorio.txt"); // se crea un objeto File con la ruta del archivo
+
+            if (archivo.exists() == false){
+                /* si el archivo no existe, entonces lo crea */
+                archivo.createNewFile();
+            }
+
+            if (!(nombre_ingresado.isEmpty() ^ numero_ingresado.isEmpty())){
+                /* si ambos campos estan llenos o vacios */
+                JOptionPane.showMessageDialog(null, "Para buscar por nombre ingrese solo el nombre, para buscar por número ingrese solo el número.");
+            }else{
+                RandomAccessFile raf = new RandomAccessFile(archivo, "r");
+                while (raf.getFilePointer() < raf.length()) {
+                    linea = raf.readLine(); // se lee una linea del archivo
+                    String [] registro = linea.split("!"); // see separa la linea en nombre y numero con el caracter clave '!'
+                    nombre = registro[0]; // se obtiene el nombre del registro actual 
+                    numero_string = registro[1]; // se obriene el numero del registro actual
+
+                    if (nombre.equals(nombre_ingresado) || numero_string.equals(numero_ingresado)){ // si se encuentra el nombre o el numero
+                        encontrado = true; // se marca como encontrado
+                        JOptionPane.showMessageDialog(null, "Amigo encontrado en el directorio."); // se muestra un mensaje de confirmacion
+                        area_mensajes.append("\nAmigo encontrado en el directorio.\n"); // se muestra el mensaje en el area de mensajes
+                        area_mensajes.append("Nombre: " + nombre + ", Número: " + numero_string + "\n"); // se muestra el contacto encontrado
+                        raf.close(); // se cierra el archivo
+                        break; // se sale del ciclo porque ya se encontro el amigo
+                    }
+                    
+                }
+
+            }
+
+
+
+
+        }catch (Exception e){
+
+        }     
+        
+    }//GEN-LAST:event_boton_leerActionPerformed
+
+    private void boton_limpiarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_limpiarNombreActionPerformed
+        // TODO add your handling code here:
+        campo_nombre.setText("");
+    }//GEN-LAST:event_boton_limpiarNombreActionPerformed
+
+    private void boton_limpiarNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_limpiarNumeroActionPerformed
+        // TODO add your handling code here:
+        campo_numero.setText("");
+    }//GEN-LAST:event_boton_limpiarNumeroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -251,6 +349,8 @@ public class Ventana_principal extends javax.swing.JFrame {
     private javax.swing.JButton boton_leer;
     private javax.swing.JButton boton_limpiarCeldas;
     private javax.swing.JButton boton_limpiarMensajes;
+    private javax.swing.JButton boton_limpiarNombre;
+    private javax.swing.JButton boton_limpiarNumero;
     private javax.swing.JTextField campo_nombre;
     private javax.swing.JTextField campo_numero;
     private javax.swing.JLabel jLabel1;
