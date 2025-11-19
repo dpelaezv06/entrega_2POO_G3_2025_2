@@ -7,6 +7,8 @@ package com.mycompany.directorio_amigos;
 import java.io.File;
 import java.io.RandomAccessFile;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author daniel
@@ -164,14 +166,20 @@ public class Ventana_principal extends javax.swing.JFrame {
 
                 if (nombre.equals(nombre_igresado) || numero == numero_ingresado){
                     encontrado = true;
-                    area_mensajes.append("El nombre o número ya existe en el directorio.\n");
+                    JOptionPane.showMessageDialog(null, "El nombre o el número ya existen en el directorio."); // se muestra un mensaje de error
+                    raf.close(); // se cierra el archivo
+
                     break;
                 }
                 
             }
             if (encontrado == false){
-                raf.writeBytes(nombre_igresado + "!" + numero_string + "\n");
-                area_mensajes.append("Amigo agregado correctamente.\n");1
+                raf.writeBytes(nombre_igresado + "!" + numero_string); // se escribe el nuevo registro en el archivo
+                raf.writeBytes(System.lineSeparator()); // se escribe un salto de linea
+                JOptionPane.showMessageDialog(null, "Amigo agregado al directorio correctamente."); // se muestra un mensaje de confirmacion
+                raf.close(); // se cierra el archivo
+                campo_nombre.setText(""); // se limpia el campo de texto del nombre
+                campo_numero.setText(""); // se limpia el campo de texto del numero
             }
 
 
